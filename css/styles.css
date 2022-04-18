@@ -9,6 +9,10 @@ a {
   text-decoration: none;
 }
 
+img {
+  width: 100%;
+}
+
 h1,
 h2,
 h3 {
@@ -21,6 +25,10 @@ h3 {
 
 .white-txt {
   color: white;
+}
+
+header {
+  margin-bottom: 4rem;
 }
 
 nav {
@@ -40,4 +48,35 @@ nav {
 .nav-link {
   margin-left: 2rem;
   font-size: 1.25rem;
+}
+
+.home-btn {
+  padding: 0.8rem 2.5rem;
+  border-radius: 6px;
+}
+
+.carousel-img-container {
+  width: 90%;
+}
+
+.fas {
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+.right-arrow::before {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dot {
+  height: 1rem;
+  border-radius: 50%;
+  border: 2px solid black;
+  background-color: white;
+  margin: 1rem 0.5rem;
+}
+
+.dot.selected {
+  background-color: black;
 }
