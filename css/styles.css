@@ -60,7 +60,7 @@ nav {
 }
 
 .fas {
-  font-size: 2.5rem;
+  font-size: 2rem;
   cursor: pointer;
 }
 
@@ -74,7 +74,7 @@ nav {
   border-radius: 50%;
   border: 2px solid black;
   background-color: white;
-  margin: 1rem 0.5rem;
+  margin: 1.4rem 0.4rem;
 }
 
 .dot.selected {
