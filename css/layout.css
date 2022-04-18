@@ -1,0 +1,17 @@
+.row {
+  display: flex;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.side-margin {
+  margin: 0 auto;
+}
