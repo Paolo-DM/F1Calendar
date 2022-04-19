@@ -1,3 +1,7 @@
+/* eslint-disable no-global-assign */
+/* global getCircuitData */
+/* exported getCircuitData */
+
 var $leftArrow = document.querySelector('.left-arrow');
 var $rightArrow = document.querySelector('.right-arrow');
 var $image = document.querySelector('.carousel-image');
@@ -7,11 +11,25 @@ var $dotsContainer = document.querySelector('.progress-dots');
 var curSlide = 1;
 var maxSlide = $progressDots.length;
 
+// function getLastRaceId() {
+//   fetch(`http://ergast.com/api/f1/current/last.json`)
+//     .then((response) => response.json())
+//     .then((data) => {
+//       console.log(data.MRData.RaceTable.round);
+//       return data.MRData.RaceTable.round;
+//     });
+// }
+
+window.addEventListener('DOMContentLoaded', event => {
+  getCircuitData(1);
+});
+
 $dotsContainer.addEventListener('click', function (event) {
   if (event.target.nodeName === 'BUTTON') {
     curSlide = parseInt(event.target.getAttribute('id'));
     selectDot(curSlide);
     renderImage(curSlide);
+    getCircuitData(curSlide);
   }
 });
 
@@ -20,6 +38,7 @@ function selectDot(id) {
     $progressDots[i].className = 'dot';
   }
   $progressDots[id - 1].classList.add('selected');
+  getCircuitData(id);
 }
 
 function renderImage(id) {
