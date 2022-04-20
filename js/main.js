@@ -1,12 +1,11 @@
 /* eslint-disable no-global-assign */
 
-
-var $leftArrow = document.querySelector('.left-arrow');
-var $rightArrow = document.querySelector('.right-arrow');
-var $image = document.querySelector('.carousel-image');
-var $progressDots = document.querySelectorAll('.ph-circle');
-var $dotsContainer = document.querySelector('.progress-dots');
-const $circuitInfoContainer = document.querySelector('.circuit-info-container');
+var $leftArrow = document.querySelector(".left-arrow");
+var $rightArrow = document.querySelector(".right-arrow");
+var $image = document.querySelector(".carousel-image");
+var $progressDots = document.querySelectorAll(".ph-circle");
+var $dotsContainer = document.querySelector(".progress-dots");
+const $circuitInfoContainer = document.querySelector(".circuit-info-container");
 
 var curSlide = 1;
 var maxSlide = $progressDots.length;
@@ -20,15 +19,15 @@ var maxSlide = $progressDots.length;
 //     });
 // }
 
-window.addEventListener('DOMContentLoaded', event => {
+window.addEventListener("DOMContentLoaded", (event) => {
   getCircuitData(1);
   getConstructorStandings(2022);
   getDriverStandings(2022);
 });
 
-$dotsContainer.addEventListener('click', function (event) {
-  if (event.target.nodeName === 'I') {
-    curSlide = parseInt(event.target.getAttribute('id'));
+$dotsContainer.addEventListener("click", function (event) {
+  if (event.target.nodeName === "I") {
+    curSlide = parseInt(event.target.getAttribute("id"));
     selectDot(curSlide);
     renderImage(curSlide);
     getCircuitData(curSlide);
@@ -37,18 +36,18 @@ $dotsContainer.addEventListener('click', function (event) {
 
 function selectDot(id) {
   for (var i = 0; i < $progressDots.length; i++) {
-    $progressDots[i].className = 'ph-circle';
+    $progressDots[i].className = "ph-circle";
   }
-  $progressDots[id - 1].classList.add('ph-circle-fill');
+  $progressDots[id - 1].classList.add("ph-circle-fill");
   getCircuitData(id);
 }
 
 function renderImage(id) {
-  $image.setAttribute('src', `images/circuits/${id}.png`);
+  $image.setAttribute("src", `images/circuits/${id}.png`);
 }
 
-$rightArrow.addEventListener('click', goNextImg);
-$leftArrow.addEventListener('click', goPreviousImg);
+$rightArrow.addEventListener("click", goNextImg);
+$leftArrow.addEventListener("click", goPreviousImg);
 
 function goNextImg() {
   if (curSlide === maxSlide) {
@@ -75,7 +74,7 @@ function goPreviousImg() {
 }
 
 function renderCircuitData(data) {
-  const $circuitInfoDiv = document.querySelector('.circuit-info');
+  const $circuitInfoDiv = document.querySelector(".circuit-info");
   const html = `
   <div class="circuit-info">
               <h1>${data.MRData.RaceTable.Races[0].raceName}</h1>
@@ -86,24 +85,24 @@ function renderCircuitData(data) {
             </div>
   `;
   $circuitInfoDiv.remove();
-  $circuitInfoContainer.insertAdjacentHTML('afterbegin', html);
+  $circuitInfoContainer.insertAdjacentHTML("afterbegin", html);
 }
 
 function renderSmallConstructorStandings(data) {
   const $constructorsTbody = document.querySelector(
-    '.constructors-standings-tbody'
+    ".constructors-standings-tbody"
   );
 
   for (let i = 0; i < 5; i++) {
-    const $tr = document.createElement('tr');
-    const $td1 = document.createElement('td');
+    let $tr = document.createElement("tr");
+    let $td1 = document.createElement("td");
     $td1.textContent = i + 1;
-    const $td2 = document.createElement('td');
+    let $td2 = document.createElement("td");
     $td2.textContent =
       data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings[
         i
       ].Constructor.name;
-    const $td3 = document.createElement('td');
+    let $td3 = document.createElement("td");
     $td3.textContent =
       data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings[
         i
@@ -116,20 +115,20 @@ function renderSmallConstructorStandings(data) {
 }
 
 function renderSmallDriverStandings(data) {
-  const $driversTbody = document.querySelector('.drivers-standings-tbody');
+  const $driversTbody = document.querySelector(".drivers-standings-tbody");
 
   for (let i = 0; i < 5; i++) {
-    const $tr = document.createElement('tr');
-    const $td1 = document.createElement('td');
+    let $tr = document.createElement("tr");
+    let $td1 = document.createElement("td");
     $td1.textContent = i + 1;
-    const $td2 = document.createElement('td');
+    let $td2 = document.createElement("td");
     $td2.textContent =
       data.MRData.StandingsTable.StandingsLists[0].DriverStandings[i].Driver
         .givenName +
-      ' ' +
+      " " +
       data.MRData.StandingsTable.StandingsLists[0].DriverStandings[i].Driver
         .familyName;
-    const $td3 = document.createElement('td');
+    let $td3 = document.createElement("td");
     $td3.textContent =
       data.MRData.StandingsTable.StandingsLists[0].DriverStandings[i].points;
     $tr.appendChild($td1);
