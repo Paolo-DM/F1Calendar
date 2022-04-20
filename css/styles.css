@@ -2,6 +2,10 @@
   font-family: "Open Sans", sans-serif;
 }
 
+.hidden {
+  display: none;
+}
+
 button,
 a {
   cursor: pointer;
@@ -141,4 +145,42 @@ tr {
   .constructors-standings-container {
     width: 100%;
   }
+}
+
+/* FULL STANDINGS */
+.select-standing-row {
+  background-color: #42636e;
+  color: white;
+  height: 4rem;
+}
+
+.ph-flag-checkered-fill {
+  font-size: 1.5rem;
+  padding: 0 5.5rem;
+}
+
+.table-standings {
+  width: 90%;
+  border-collapse: collapse;
+}
+
+.table-standings th {
+  text-align: start;
+}
+
+.table-standings td {
+  height: 3rem;
+  border: 1px solid black;
+}
+
+.pilot-icon,
+.pilot-nationality-icon {
+  width: 3rem;
+  vertical-align: middle;
+}
+
+.pilot-nationality-icon {
+  width: 40px;
+  height: 30px;
+  border: 1px solid black;
 }

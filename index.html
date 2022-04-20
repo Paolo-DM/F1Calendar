@@ -34,7 +34,7 @@
     </nav>
   </header>
   <main>
-    <div class="container">
+    <div class="container hidden">
       <div class="carousel-container row">
         <div class="col-40 flex circuit-info-container">
           <div class="circuit-info">
@@ -133,6 +133,31 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="full-standings-container">
+      <div class="select-standing-row flex">
+        <a href="#">
+          <h2>Driver Standings</h2>
+        </a>
+        <i class="ph-flag-checkered-fill"></i>
+        <a href="#">
+          <h2>Constructor Standings</h2>
+        </a>
+      </div>
+
+      <table class="table-standings side-margin">
+        <thead class="thead-full-driver-standings">
+          <tr>
+            <th>Position</th>
+            <th>Driver</th>
+            <th>Nationality</th>
+            <th>Car</th>
+            <th>Wins</th>
+            <th>Points</th>
+          </tr>
+        </thead>
+        <tbody class="tbody-full-driver-standings"></tbody>
+      </table>
     </div>
   </main>
   <script src="js/data.js"></script>
