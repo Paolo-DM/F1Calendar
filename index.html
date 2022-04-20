@@ -14,10 +14,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+  <script src="https://unpkg.com/phosphor-icons"></script>
 </head>
 
 <body>
@@ -47,127 +46,96 @@
           </div>
         </div>
         <div class="col-60">
-          <div class="carousel-img-container flex">
-            <i class="fas fa-chevron-left left-arrow col-25 flex"></i>
+          <div class="carousel-img-container side-margin flex">
+            <i class="ph-arrow-circle-left left-arrow"></i>
+            <!-- <i class="fas fa-chevron-left left-arrow col-25 flex"></i> -->
             <div class="image-container">
               <img class="carousel-image" src="images/circuits/1.png" alt="circuit-img" />
             </div>
-            <i class="fas fa-chevron-right right-arrow col-25 flex"></i>
+            <i class="ph-arrow-circle-right right-arrow"></i>
           </div>
           <div class="progress-dots row justify-center align-center">
-            <button class="dot selected" id="1"></button>
-            <button class="dot" id="2"></button>
-            <button class="dot" id="3"></button>
-            <button class="dot" id="4"></button>
-            <button class="dot" id="5"></button>
-            <button class="dot" id="6"></button>
-            <button class="dot" id="7"></button>
-            <button class="dot" id="8"></button>
-            <button class="dot" id="9"></button>
-            <button class="dot" id="10"></button>
-            <button class="dot" id="11"></button>
-            <button class="dot" id="12"></button>
-            <button class="dot" id="13"></button>
-            <button class="dot" id="14"></button>
-            <button class="dot" id="15"></button>
-            <button class="dot" id="16"></button>
-            <button class="dot" id="17"></button>
-            <button class="dot" id="18"></button>
-            <button class="dot" id="19"></button>
-            <button class="dot" id="20"></button>
-            <button class="dot" id="21"></button>
-            <button class="dot" id="22"></button>
+            <i class="ph-circle ph-circle-fill" id="1"></i>
+            <i class="ph-circle" id="2"></i>
+            <i class="ph-circle" id="3"></i>
+            <i class="ph-circle" id="4"></i>
+            <i class="ph-circle" id="5"></i>
+            <i class="ph-circle" id="6"></i>
+            <i class="ph-circle" id="7"></i>
+            <i class="ph-circle" id="8"></i>
+            <i class="ph-circle" id="9"></i>
+            <i class="ph-circle" id="10"></i>
+            <i class="ph-circle" id="11"></i>
+            <i class="ph-circle" id="12"></i>
+            <i class="ph-circle" id="13"></i>
+            <i class="ph-circle" id="14"></i>
+            <i class="ph-circle" id="15"></i>
+            <i class="ph-circle" id="16"></i>
+            <i class="ph-circle" id="17"></i>
+            <i class="ph-circle" id="18"></i>
+            <i class="ph-circle" id="19"></i>
+            <i class="ph-circle" id="20"></i>
+            <i class="ph-circle" id="21"></i>
+            <i class="ph-circle" id="22"></i>
+            <!-- <button class="dot selected" id="1"></button>
+               <button class="dot" id="2"></button>
+              <button class="dot" id="22"></button>
+              -->
           </div>
         </div>
       </div>
-      <div class="standings-container row">
-        <div class="col-50">
-          <img src="images/ferrari-pit.jpg" />
+      <div class="standings-container">
+        <div class="row">
+          <div class="col-50">
+            <img src="images/ferrari-pit.jpg" />
+          </div>
+          <div class="col-50 drivers-standings-container flex flex-column">
+            <h2>Drivers' Standings</h2>
+            <table class="table-homepage">
+              <thead class="thead-homepage">
+                <tr>
+                  <th>Position</th>
+                  <th>Driver</th>
+                  <th>Points</th>
+                </tr>
+              </thead>
+              <tbody class="tbody-homepage drivers-standings-tbody">
+                <!-- <tr>
+                    <td>1</td>
+                    <td>Charles Leclerc</td>
+                    <td>71</td>
+                  </tr>
+                   -->
+              </tbody>
+            </table>
+            <a class="standings-btn" href="#">Full Drivers Standings</a>
+          </div>
         </div>
-        <div class="col-50 drivers-standings-container flex flex-column">
-          <h2>Drivers' Standings</h2>
-          <table class="table-homepage">
-            <thead class="thead-homepage">
-              <tr>
-                <th>Position</th>
-                <th>Driver</th>
-                <th>Points</th>
-              </tr>
-            </thead>
-            <tbody class="tbody-homepage drivers-standings-tbody">
-              <!-- <tr>
-                  <td>1</td>
-                  <td>Charles Leclerc</td>
-                  <td>71</td>
-                </tr>
+        <div class="row">
+          <div class="col-50 constructors-standings-container flex flex-column">
+            <h2>Constructors' Standings</h2>
+            <table class="table-homepage">
+              <thead class="thead-homepage">
                 <tr>
-                  <td>1</td>
-                  <td>Charles Leclerc</td>
-                  <td>71</td>
+                  <th>Position</th>
+                  <th>Constructor</th>
+                  <th>Points</th>
                 </tr>
-                <tr>
-                  <td>1</td>
-                  <td>Charles Leclerc</td>
-                  <td>71</td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>Charles Leclerc</td>
-                  <td>71</td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>Charles Leclerc</td>
-                  <td>71</td>
-                </tr> -->
-            </tbody>
-          </table>
-          <a class="standings-btn" href="#">Full Drivers Standings</a>
-        </div>
-      </div>
-      <div class="standings-container row">
-        <div class="col-50 constructors-standings-container flex flex-column">
-          <h2>Constructors' Standings</h2>
-          <table class="table-homepage">
-            <thead class="thead-homepage">
-              <tr>
-                <th>Position</th>
-                <th>Constructor</th>
-                <th>Points</th>
-              </tr>
-            </thead>
-            <tbody class="tbody-homepage constructors-standings-tbody">
-              <!-- <tr>
-                  <td>1</td>
-                  <td>Charles Leclerc</td>
-                  <td>71</td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>Charles Leclerc</td>
-                  <td>71</td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>Charles Leclerc</td>
-                  <td>71</td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>Charles Leclerc</td>
-                  <td>71</td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>Charles Leclerc</td>
-                  <td>71</td>
-                </tr> -->
-            </tbody>
-          </table>
-          <a class="standings-btn" href="#">Full Constructors Standings</a>
-        </div>
-        <div class="col-50 constructors-standings-container">
-          <img src="images/finish-line.jpg" />
+              </thead>
+              <tbody class="tbody-homepage constructors-standings-tbody">
+                <!-- <tr>
+                    <td>1</td>
+                    <td>Ferrari</td>
+                    <td>104</td>
+                  </tr>
+                   -->
+              </tbody>
+            </table>
+            <a class="standings-btn" href="#">Full Constructors Standings</a>
+          </div>
+          <div class="col-50 constructors-standings-container">
+            <img src="images/finish-line.jpg" />
+          </div>
         </div>
       </div>
     </div>
