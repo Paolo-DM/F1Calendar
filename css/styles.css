@@ -101,11 +101,11 @@ nav {
   width: 90%;
 }
 
-.tbody-homepage tr:nth-child(even) {
+tr:nth-child(even) {
   background-color: white;
 }
 
-.tbody-homepage tr:nth-child(odd) {
+tr:nth-child(odd) {
   background-color: #f9f9fa;
 }
 
@@ -148,10 +148,16 @@ tr {
 }
 
 /* FULL STANDINGS */
+
+.full-standings-container {
+  background-color: #f2f2f2;
+}
+
 .select-standing-row {
   background-color: #42636e;
   color: white;
   height: 4rem;
+  margin-bottom: 2rem;
 }
 
 .ph-flag-checkered-fill {
@@ -170,7 +176,8 @@ tr {
 
 .table-standings td {
   height: 3rem;
-  border: 1px solid black;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid #dee2e8;
 }
 
 .pilot-icon,
@@ -182,5 +189,11 @@ tr {
 .pilot-nationality-icon {
   width: 40px;
   height: 30px;
-  border: 1px solid black;
+  border: 0.5px solid black;
+}
+
+.thead-full-driver-standings tr th {
+  font-family: Raleway;
+  font-size: 1.2rem;
+  background-color: #e5e5e5;
 }

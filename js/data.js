@@ -12,12 +12,24 @@ function getConstructorStandings(year) {
     });
 }
 
+fetch("http://ergast.com/api/f1/drivers/alonso.json")
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+  });
+
 function getDriverStandings(year) {
   fetch(`http://ergast.com/api/f1/${year}/driverStandings.json`)
     .then((response) => response.json())
     .then((data) => {
+      console.log(data.MRData);
+      console.log(
+        data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0].Driver.nationality
+          .toLowerCase()
+          .substring(0, 2)
+      );
       renderFullllDriverStandings(data);
-      // renderSmallDriverStandings(data);
+      renderSmallDriverStandings(data);
     });
 }
 
@@ -52,7 +64,7 @@ function renderFullllDriverStandings(data) {
   for (let i = 0; i < data.MRData.total; i++) {
     const html = `
       <tr>
-        <td>${i + 1}</td>
+        <td><strong>${i + 1}</strong></td>
         <td>
           <span>
             <img class="pilot-icon" src="images/pilots/${data.MRData.StandingsTable.StandingsLists[0].DriverStandings[i]
@@ -68,7 +80,9 @@ function renderFullllDriverStandings(data) {
         </td>
         <td>
           <span>
-            <img class="pilot-nationality-icon" src="images/monaco-2.png" />
+            <img class="pilot-nationality-icon" src="images/flags/${data.MRData.StandingsTable.StandingsLists[0].DriverStandings[i]
+        .Driver.nationality
+      }.svg"  />
           </span>
           &nbsp;${data.MRData.StandingsTable.StandingsLists[0].DriverStandings[i]
         .Driver.nationality
@@ -79,8 +93,8 @@ function renderFullllDriverStandings(data) {
       }</td>
         <td>${data.MRData.StandingsTable.StandingsLists[0].DriverStandings[i].wins
       }</td>
-        <td>${data.MRData.StandingsTable.StandingsLists[0].DriverStandings[i].points
-      }</td>
+        <td><strong>${data.MRData.StandingsTable.StandingsLists[0].DriverStandings[i].points
+      }</strong></td>
       </tr>
     `;
     // let $tr = document.createElement("tr");
