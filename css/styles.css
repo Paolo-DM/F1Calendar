@@ -122,3 +122,23 @@ tr {
   border-radius: 6px;
   padding: 1rem 1.8rem;
 }
+
+@media (max-width: 800px) {
+  .carousel-container {
+    flex-direction: column;
+    padding: 1rem 0;
+    text-align: center;
+  }
+  .circuit-info-container,
+  .carousel-cont-right {
+    margin-top: 2.5rem;
+    width: 100%;
+  }
+  .standings-img-container {
+    display: none;
+  }
+  .drivers-standings-container,
+  .constructors-standings-container {
+    width: 100%;
+  }
+}
