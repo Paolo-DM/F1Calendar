@@ -1,0 +1,144 @@
+* {
+  font-family: "Open Sans", sans-serif;
+}
+
+button,
+a {
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+}
+
+h1,
+h2,
+h3 {
+  font-family: Raleway, sans-serif;
+}
+
+.blue-bkgd {
+  background-color: #0b2834;
+}
+
+.white-txt {
+  color: white;
+}
+
+nav {
+  width: 95%;
+}
+
+.logo-img {
+  width: 150px;
+  height: 50px;
+}
+
+.logo-text {
+  margin-left: 2rem;
+  font-size: 2.25rem;
+}
+
+.nav-link {
+  margin-left: 2rem;
+  font-size: 1.25rem;
+}
+
+.home-btn {
+  padding: 0.8rem 2.5rem;
+  border-radius: 6px;
+}
+
+.circuit-info h1 {
+  font-size: 2.5rem;
+}
+
+.circuit-info p {
+  font-size: 1.2rem;
+}
+
+.wiki-btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+}
+
+.carousel-img-container {
+  width: 95%;
+}
+
+.ph-circle,
+.ph-circle-fill {
+  cursor: pointer;
+  margin-left: 2px;
+  margin-top: 1.5rem;
+}
+
+.ph-arrow-circle-right,
+.ph-arrow-circle-left {
+  cursor: pointer;
+  font-size: 2.4rem;
+  margin: 0 1rem;
+}
+
+.carousel-container {
+  padding: 5rem 0;
+  background-color: #e5e5e5;
+}
+.drivers-standings-container,
+.constructors-standings-container {
+  background-color: #f2f2f2;
+}
+
+.table-homepage {
+  text-align: center;
+  border-collapse: collapse;
+  width: 90%;
+}
+
+.tbody-homepage tr:nth-child(even) {
+  background-color: white;
+}
+
+.tbody-homepage tr:nth-child(odd) {
+  background-color: #f9f9fa;
+}
+
+.thead-homepage tr th {
+  font-family: Raleway;
+  color: white;
+  background-color: #0b2834;
+}
+
+tr {
+  height: 3rem;
+}
+
+.standings-btn {
+  margin-top: 2rem;
+  border: 2px solid black;
+  color: black;
+  border-radius: 6px;
+  padding: 1rem 1.8rem;
+}
+
+@media (max-width: 800px) {
+  .carousel-container {
+    flex-direction: column;
+    padding: 1rem 0;
+    text-align: center;
+  }
+  .circuit-info-container,
+  .carousel-cont-right {
+    margin-top: 2.5rem;
+    width: 100%;
+  }
+  .standings-img-container {
+    display: none;
+  }
+  .drivers-standings-container,
+  .constructors-standings-container {
+    width: 100%;
+  }
+}
