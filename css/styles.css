@@ -2,6 +2,10 @@
   font-family: "Open Sans", sans-serif;
 }
 
+.hidden {
+  display: none;
+}
+
 button,
 a {
   cursor: pointer;
@@ -39,6 +43,7 @@ nav {
 .logo-text {
   margin-left: 2rem;
   font-size: 2.25rem;
+  cursor: pointer;
 }
 
 .nav-link {
@@ -97,11 +102,11 @@ nav {
   width: 90%;
 }
 
-.tbody-homepage tr:nth-child(even) {
+tr:nth-child(even) {
   background-color: white;
 }
 
-.tbody-homepage tr:nth-child(odd) {
+tr:nth-child(odd) {
   background-color: #f9f9fa;
 }
 
@@ -123,6 +128,91 @@ tr {
   padding: 1rem 1.8rem;
 }
 
+/* FULL STANDINGS */
+
+.full-standings-container {
+  background-color: #f2f2f2;
+}
+
+.select-standing-row {
+  background-color: #42636e;
+  color: white;
+  height: 4rem;
+  margin-bottom: 2rem;
+}
+
+.ph-flag-checkered-fill {
+  font-size: 1.5rem;
+  padding: 0 5.5rem;
+}
+
+.table-standings {
+  width: 90%;
+  border-collapse: collapse;
+}
+
+.table-standings th {
+  text-align: start;
+}
+
+.table-standings td {
+  height: 3rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid #dee2e8;
+}
+
+.pilot-icon,
+.pilot-nationality-icon {
+  width: 3rem;
+  vertical-align: middle;
+}
+
+.pilot-nationality-icon {
+  width: 40px;
+  height: 30px;
+  border: 0.5px solid black;
+}
+
+.constructor-logo-img {
+  vertical-align: middle;
+  width: 60px;
+  height: 40px;
+}
+
+.thead-full-driver-standings tr th,
+.thead-full-constructor-standings tr th,
+.thead-full-calendar tr th {
+  font-family: Raleway, sans-serif;
+  font-size: 1.2rem;
+  background-color: #e5e5e5;
+}
+
+.car-icon {
+  width: 15rem;
+  vertical-align: middle;
+}
+
+/* Calendar */
+
+.calendar-content {
+  width: 90%;
+}
+
+.dropdown-select-calendar {
+  /* width: 4.5rem; */
+  margin-top: 2rem;
+  border-radius: 6px;
+  padding: 0 2rem 0 1rem;
+  font-size: 1.3rem;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.table-full-calendar {
+  width: 100%;
+  border-collapse: collapse;
+}
+
 @media (max-width: 800px) {
   .carousel-container {
     flex-direction: column;
@@ -140,5 +230,9 @@ tr {
   .drivers-standings-container,
   .constructors-standings-container {
     width: 100%;
+  }
+
+  .full-standings-container img {
+    display: none;
   }
 }
