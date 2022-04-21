@@ -128,26 +128,6 @@ tr {
   padding: 1rem 1.8rem;
 }
 
-@media (max-width: 800px) {
-  .carousel-container {
-    flex-direction: column;
-    padding: 1rem 0;
-    text-align: center;
-  }
-  .circuit-info-container,
-  .carousel-cont-right {
-    margin-top: 2.5rem;
-    width: 100%;
-  }
-  .standings-img-container {
-    display: none;
-  }
-  .drivers-standings-container,
-  .constructors-standings-container {
-    width: 100%;
-  }
-}
-
 /* FULL STANDINGS */
 
 .full-standings-container {
@@ -200,7 +180,8 @@ tr {
 }
 
 .thead-full-driver-standings tr th,
-.thead-full-constructor-standings tr th {
+.thead-full-constructor-standings tr th,
+.thead-full-calendar tr th {
   font-family: Raleway, sans-serif;
   font-size: 1.2rem;
   background-color: #e5e5e5;
@@ -209,4 +190,49 @@ tr {
 .car-icon {
   width: 15rem;
   vertical-align: middle;
+}
+
+/* Calendar */
+
+.calendar-content {
+  width: 90%;
+}
+
+.dropdown-select-calendar {
+  /* width: 4.5rem; */
+  margin-top: 2rem;
+  border-radius: 6px;
+  padding: 0 2rem 0 1rem;
+  font-size: 1.3rem;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.table-full-calendar {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+@media (max-width: 800px) {
+  .carousel-container {
+    flex-direction: column;
+    padding: 1rem 0;
+    text-align: center;
+  }
+  .circuit-info-container,
+  .carousel-cont-right {
+    margin-top: 2.5rem;
+    width: 100%;
+  }
+  .standings-img-container {
+    display: none;
+  }
+  .drivers-standings-container,
+  .constructors-standings-container {
+    width: 100%;
+  }
+
+  .full-standings-container img {
+    display: none;
+  }
 }
