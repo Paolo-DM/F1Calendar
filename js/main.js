@@ -1,14 +1,82 @@
 /* eslint-disable no-global-assign */
 
-var $leftArrow = document.querySelector(".left-arrow");
-var $rightArrow = document.querySelector(".right-arrow");
-var $image = document.querySelector(".carousel-image");
-var $progressDots = document.querySelectorAll(".ph-circle");
-var $dotsContainer = document.querySelector(".progress-dots");
+const $leftArrow = document.querySelector(".left-arrow");
+const $rightArrow = document.querySelector(".right-arrow");
+const $image = document.querySelector(".carousel-image");
+const $progressDots = document.querySelectorAll(".ph-circle");
+const $dotsContainer = document.querySelector(".progress-dots");
 const $circuitInfoContainer = document.querySelector(".circuit-info-container");
+const $tableFullDriver = document.querySelector(".table-full-driver");
+const $tableFullConstructor = document.querySelector(".table-full-constructor");
+const $container = document.querySelector(".container");
+const $standingsLink = document.querySelector(".standings-link");
+const $driverStandingsLink = document.querySelectorAll(
+  ".driver-standings-link"
+);
+const $constructorStandingsLink = document.querySelectorAll(
+  ".constructor-standings-link"
+);
+const $fullStandingsContainer = document.querySelector(
+  ".full-standings-container"
+);
+const $homeLinks = document.querySelectorAll(".home-link");
 
-var curSlide = 1;
-var maxSlide = $progressDots.length;
+$homeLinks.forEach((item) => item.addEventListener("click", showHomePage));
+
+$constructorStandingsLink.forEach((item) =>
+  item.addEventListener("click", showConstructorStandings)
+);
+
+$driverStandingsLink.forEach((item) =>
+  item.addEventListener("click", showDriverStandings)
+);
+
+$standingsLink.addEventListener("click", showDriverStandings);
+
+function showConstructorStandings() {
+  hideHomePage();
+  hideDriverStandings();
+  showFullStandingsContainer();
+  $tableFullConstructor.classList.remove("hidden");
+}
+
+function hideConstructorStandings() {
+  $tableFullConstructor.classList.add("hidden");
+  hideFullStandingsContainer();
+}
+
+function showDriverStandings() {
+  hideHomePage();
+  hideConstructorStandings();
+  showFullStandingsContainer();
+  $tableFullDriver.classList.remove("hidden");
+}
+
+function hideDriverStandings() {
+  $tableFullDriver.classList.add("hidden");
+}
+
+function showHomePage() {
+  $container.classList.remove("hidden");
+  hideFullStandingsContainer();
+  hideDriverStandings();
+  hideConstructorStandings();
+}
+
+function hideHomePage() {
+  $container.classList.add("hidden");
+}
+
+function showFullStandingsContainer() {
+  $fullStandingsContainer.classList.remove("hidden");
+}
+
+function hideFullStandingsContainer() {
+  $fullStandingsContainer.classList.add("hidden");
+}
+
+let curSlide = 1;
+const maxSlide = $progressDots.length;
 
 // function getLastRaceId() {
 //   fetch(`http://ergast.com/api/f1/current/last.json`)
@@ -35,7 +103,7 @@ $dotsContainer.addEventListener("click", function (event) {
 });
 
 function selectDot(id) {
-  for (var i = 0; i < $progressDots.length; i++) {
+  for (let i = 0; i < $progressDots.length; i++) {
     $progressDots[i].className = "ph-circle";
   }
   $progressDots[id - 1].classList.add("ph-circle-fill");

@@ -24,17 +24,17 @@
     <nav class="row space-between side-margin">
       <div class="nav-logo flex">
         <img class="logo-img" src="images/f1_logo.svg" />
-        <h1 class="logo-text white-txt">F1Calendar</h1>
+        <h1 class="logo-text white-txt home-link">F1Calendar</h1>
       </div>
       <div class="nav-links flex">
-        <a class="nav-link" href="#">Home</a>
-        <a class="nav-link" href="#">Standings</a>
+        <a class="nav-link home-link" href="#">Home</a>
+        <a class="nav-link standings-link driver-standings-link" href="#">Standings</a>
         <a class="nav-link" href="#">Calendar</a>
       </div>
     </nav>
   </header>
   <main>
-    <div class="container hidden">
+    <div class="container">
       <div class="carousel-container row">
         <div class="col-40 flex circuit-info-container">
           <div class="circuit-info">
@@ -103,7 +103,7 @@
                    -->
               </tbody>
             </table>
-            <a class="standings-btn" href="#">Full Drivers Standings</a>
+            <a class="standings-btn driver-standings-link" href="#">Full Driver Standings</a>
           </div>
         </div>
         <div class="row">
@@ -126,7 +126,7 @@
                    -->
               </tbody>
             </table>
-            <a class="standings-btn" href="#">Full Constructors Standings</a>
+            <a class="standings-btn constructor-standings-link" href="#">Full Constructor Standings</a>
           </div>
           <div class="col-50 constructors-standings-container standings-img-container">
             <img src="images/finish-line.jpg" />
@@ -134,18 +134,18 @@
         </div>
       </div>
     </div>
-    <div class="full-standings-container">
+    <div class="full-standings-container hidden">
       <div class="select-standing-row flex">
-        <a href="#">
+        <a class="driver-standings-link" href="#">
           <h2>Driver Standings</h2>
         </a>
         <i class="ph-flag-checkered-fill"></i>
-        <a href="#">
+        <a class="constructor-standings-link" href="#">
           <h2>Constructor Standings</h2>
         </a>
       </div>
 
-      <table class="table-standings side-margin">
+      <table class="table-full-driver table-standings side-margin hidden">
         <thead class="thead-full-driver-standings">
           <tr>
             <th>Position</th>
@@ -157,6 +157,20 @@
           </tr>
         </thead>
         <tbody class="tbody-full-driver-standings"></tbody>
+      </table>
+
+      <table class="table-full-constructor table-standings side-margin hidden">
+        <thead class="thead-full-constructor-standings">
+          <tr>
+            <th>Position</th>
+            <th>Team</th>
+            <th>Car</th>
+            <th>Nationality</th>
+            <th>Wins</th>
+            <th>Points</th>
+          </tr>
+        </thead>
+        <tbody class="tbody-full-constructor-standings"></tbody>
       </table>
     </div>
   </main>

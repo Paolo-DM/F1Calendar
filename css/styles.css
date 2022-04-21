@@ -43,6 +43,7 @@ nav {
 .logo-text {
   margin-left: 2rem;
   font-size: 2.25rem;
+  cursor: pointer;
 }
 
 .nav-link {
@@ -192,8 +193,20 @@ tr {
   border: 0.5px solid black;
 }
 
-.thead-full-driver-standings tr th {
-  font-family: Raleway;
+.constructor-logo-img {
+  vertical-align: middle;
+  width: 60px;
+  height: 40px;
+}
+
+.thead-full-driver-standings tr th,
+.thead-full-constructor-standings tr th {
+  font-family: Raleway, sans-serif;
   font-size: 1.2rem;
   background-color: #e5e5e5;
+}
+
+.car-icon {
+  width: 15rem;
+  vertical-align: middle;
 }
