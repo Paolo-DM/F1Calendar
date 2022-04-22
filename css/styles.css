@@ -151,7 +151,8 @@ tr {
   border-collapse: collapse;
 }
 
-.table-standings th {
+.table-standings th,
+.table-full-calendar th {
   text-align: start;
 }
 
@@ -162,12 +163,14 @@ tr {
 }
 
 .pilot-icon,
-.pilot-nationality-icon {
+.pilot-nationality-icon,
+.country-icon {
   width: 3rem;
   vertical-align: middle;
 }
 
-.pilot-nationality-icon {
+.pilot-nationality-icon,
+.country-icon {
   width: 40px;
   height: 30px;
   border: 0.5px solid black;
@@ -198,19 +201,24 @@ tr {
   width: 90%;
 }
 
-.dropdown-select-calendar {
-  /* width: 4.5rem; */
-  margin-top: 2rem;
-  border-radius: 6px;
-  padding: 0 2rem 0 1rem;
-  font-size: 1.3rem;
-  background-color: transparent;
-  cursor: pointer;
-}
-
 .table-full-calendar {
   width: 100%;
   border-collapse: collapse;
+}
+
+.table-full-calendar td {
+  /* width: 4rem; */
+}
+
+.select-year-calendar {
+  gap: 2rem;
+}
+
+.select-year-calendar i {
+  cursor: pointer;
+}
+.select-year-calendar i {
+  font-size: 1.5rem;
 }
 
 @media (max-width: 800px) {
@@ -233,6 +241,16 @@ tr {
   }
 
   .full-standings-container img {
+    display: none;
+  }
+  .table-full-calendar td,
+  .table-full-calendar thead th {
+    font-size: 1rem;
+  }
+  .table-full-calendar img {
+    display: none;
+  }
+  .table-full-calendar .circuit-name {
     display: none;
   }
 }

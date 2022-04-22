@@ -10,6 +10,9 @@ const $tableFullDriver = document.querySelector(".table-full-driver");
 const $tableFullConstructor = document.querySelector(".table-full-constructor");
 const $container = document.querySelector(".container");
 const $standingsLink = document.querySelector(".standings-link");
+const $homeLinks = document.querySelectorAll(".home-link");
+const $calendarLink = document.querySelector(".calendar-link");
+const $calendarContainer = document.querySelector(".calendar-container");
 const $driverStandingsLink = document.querySelectorAll(
   ".driver-standings-link"
 );
@@ -19,7 +22,8 @@ const $constructorStandingsLink = document.querySelectorAll(
 const $fullStandingsContainer = document.querySelector(
   ".full-standings-container"
 );
-const $homeLinks = document.querySelectorAll(".home-link");
+
+const currentYear = new Date().getFullYear();
 
 $homeLinks.forEach((item) => item.addEventListener("click", showHomePage));
 
@@ -32,6 +36,15 @@ $driverStandingsLink.forEach((item) =>
 );
 
 $standingsLink.addEventListener("click", showDriverStandings);
+
+$calendarLink.addEventListener("click", showCalendar);
+
+function showCalendar() {
+  hideHomePage();
+  hideConstructorStandings();
+  hideDriverStandings();
+  $calendarContainer.classList.remove("hidden");
+}
 
 function showConstructorStandings() {
   hideHomePage();
@@ -89,8 +102,11 @@ const maxSlide = $progressDots.length;
 
 window.addEventListener("DOMContentLoaded", (event) => {
   getCircuitData(1);
-  getConstructorStandings(2022);
-  getDriverStandings(2022);
+  getConstructorStandings(currentYear);
+  getDriverStandings(currentYear);
+  populateCalendarYears();
+  renderYear(currentYear);
+  getCalendar(currentYear);
 });
 
 $dotsContainer.addEventListener("click", function (event) {
@@ -205,3 +221,69 @@ function renderSmallDriverStandings(data) {
     $driversTbody.appendChild($tr);
   }
 }
+
+// Calendar Carousel
+const calendarYearsArr = [];
+const $calendarYear = document.querySelector(".calendar-year");
+let curYear = currentYear;
+const $nextYearArrow = document.querySelector(".ph-caret-right-fill");
+const $nextTenYearArrow = document.querySelector(".ph-caret-double-right-fill");
+const $prevYearArrow = document.querySelector(".ph-caret-left-fill");
+const $prevTenYearArrow = document.querySelector(".ph-caret-double-left-fill");
+
+function populateCalendarYears() {
+  for (let i = 1950; i <= currentYear; i++) {
+    calendarYearsArr.push(i);
+  }
+}
+
+function goNextYear() {
+  if (curYear === currentYear) {
+    renderYear(1950);
+    curYear = 1950;
+    getCalendar(1950);
+  } else {
+    curYear++;
+    renderYear(curYear);
+    getCalendar(curYear);
+  }
+}
+
+function goNextTenYears() {
+  if (currentYear - curYear < 10) {
+    return;
+  } else {
+    curYear += 10;
+    renderYear(curYear);
+    getCalendar(curYear);
+  }
+}
+
+function goPreviousYear() {
+  if (curYear === 1950) {
+    renderYear(currentYear);
+    curYear = currentYear;
+    getCalendar(currentYear);
+  }
+  curYear--;
+  renderYear(curYear);
+  getCalendar(curYear);
+}
+
+function goPreviousTenYears() {
+  if (curYear - 1950 < 10) {
+    return;
+  }
+  curYear -= 10;
+  renderYear(curYear);
+  getCalendar(curYear);
+}
+
+function renderYear(year) {
+  $calendarYear.textContent = year;
+}
+
+$nextYearArrow.addEventListener("click", goNextYear);
+$prevYearArrow.addEventListener("click", goPreviousYear);
+$nextTenYearArrow.addEventListener("click", goNextTenYears);
+$prevTenYearArrow.addEventListener("click", goPreviousTenYears);
