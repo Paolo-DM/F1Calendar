@@ -145,7 +145,7 @@ function renderFullCalendar(data) {
         <td>
           ${raceName}
         </td>
-        <td>${circuitName}</td>
+        <td class="circuit-name">${circuitName}</td>
         <td><span>
         <img class="country-icon" src="https://countryflagsapi.com/png/${country}"  />
       </span>

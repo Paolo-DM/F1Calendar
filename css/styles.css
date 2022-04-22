@@ -243,4 +243,14 @@ tr {
   .full-standings-container img {
     display: none;
   }
+  .table-full-calendar td,
+  .table-full-calendar thead th {
+    font-size: 1rem;
+  }
+  .table-full-calendar img {
+    display: none;
+  }
+  .table-full-calendar .circuit-name {
+    display: none;
+  }
 }
