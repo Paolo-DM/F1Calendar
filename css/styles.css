@@ -207,7 +207,7 @@ tr {
 }
 
 .table-full-calendar td {
-  /* width: 4rem; */
+  width: 3rem;
 }
 
 .select-year-calendar {
