@@ -130,7 +130,6 @@ function renderFullCalendar(data) {
     $trElements.forEach((tr) => tr.remove());
   }
 
-  console.log($calendarFullTbody);
   const totalRaces = parseInt(data.MRData.total);
 
   for (let i = 0; i < totalRaces; i++) {

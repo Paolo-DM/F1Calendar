@@ -165,7 +165,7 @@ tr {
 .pilot-icon,
 .pilot-nationality-icon,
 .country-icon {
-  /* width: 3rem; */
+  width: 3rem;
   vertical-align: middle;
 }
 
@@ -207,7 +207,7 @@ tr {
 }
 
 .table-full-calendar td {
-  width: 3rem;
+  /* width: 4rem; */
 }
 
 .select-year-calendar {

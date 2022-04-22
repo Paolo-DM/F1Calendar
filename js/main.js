@@ -10,6 +10,9 @@ const $tableFullDriver = document.querySelector(".table-full-driver");
 const $tableFullConstructor = document.querySelector(".table-full-constructor");
 const $container = document.querySelector(".container");
 const $standingsLink = document.querySelector(".standings-link");
+const $homeLinks = document.querySelectorAll(".home-link");
+const $calendarLink = document.querySelector(".calendar-link");
+const $calendarContainer = document.querySelector(".calendar-container");
 const $driverStandingsLink = document.querySelectorAll(
   ".driver-standings-link"
 );
@@ -19,8 +22,6 @@ const $constructorStandingsLink = document.querySelectorAll(
 const $fullStandingsContainer = document.querySelector(
   ".full-standings-container"
 );
-const $homeLinks = document.querySelectorAll(".home-link");
-// const $calendarYears = document.querySelectorAll(".calendar-year");
 
 const currentYear = new Date().getFullYear();
 
@@ -35,6 +36,15 @@ $driverStandingsLink.forEach((item) =>
 );
 
 $standingsLink.addEventListener("click", showDriverStandings);
+
+$calendarLink.addEventListener("click", showCalendar);
+
+function showCalendar() {
+  hideHomePage();
+  hideConstructorStandings();
+  hideDriverStandings();
+  $calendarContainer.classList.remove("hidden");
+}
 
 function showConstructorStandings() {
   hideHomePage();
@@ -97,7 +107,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
   populateCalendarYears();
   renderYear(currentYear);
   getCalendar(currentYear);
-  // renderFullCalendar(2022);
 });
 
 $dotsContainer.addEventListener("click", function (event) {
