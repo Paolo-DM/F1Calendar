@@ -4,6 +4,19 @@ function getCircuitData(circuitId) {
     .then((data) => renderCircuitData(data));
 }
 
+function getCalendar(year) {
+  fetch(`http://ergast.com/api/f1/${year}.json`)
+    .then((response) => response.json())
+    .then((data) => {
+      renderFullCalendar(data);
+      return fetch(`http://ergast.com/api/f1/${year}/results.json?limit=700`);
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      renderWinner(data);
+    });
+}
+
 function getConstructorStandings(year) {
   fetch(`http://ergast.com/api/f1/${year}/constructorStandings.json`)
     .then((response) => response.json())
@@ -67,12 +80,6 @@ function renderFullllDriverStandings(data) {
   }
 }
 
-fetch("http://ergast.com/api/f1/current/constructorStandings.json")
-  .then((response) => response.json())
-  .then((data) => {
-    console.log(data.MRData);
-  });
-
 function renderFullllConstructorStandings(data) {
   const $constructorsFullTbody = document.querySelector(
     ".tbody-full-constructor-standings"
@@ -113,5 +120,83 @@ function renderFullllConstructorStandings(data) {
       </tr>
     `;
     $constructorsFullTbody.insertAdjacentHTML("beforeend", html);
+  }
+}
+
+function renderFullCalendar(data) {
+  const $trElements = document.querySelectorAll(".calendar-tr");
+  const $calendarFullTbody = document.querySelector(".tbody-full-calendar");
+  if ($calendarFullTbody) {
+    $trElements.forEach((tr) => tr.remove());
+  }
+
+  console.log($calendarFullTbody);
+  const totalRaces = parseInt(data.MRData.total);
+
+  for (let i = 0; i < totalRaces; i++) {
+    let raceName = data.MRData.RaceTable.Races[i].raceName;
+    let circuitName = data.MRData.RaceTable.Races[i].Circuit.circuitName;
+    let country = data.MRData.RaceTable.Races[i].Circuit.Location.country;
+    let date = data.MRData.RaceTable.Races[i].date;
+    let time = data.MRData.RaceTable.Races[i].time;
+
+    const html = `
+      <tr class="calendar-tr">
+        <td><strong>${i + 1}</strong></td>
+        <td>
+          ${raceName}
+        </td>
+        <td>${circuitName}</td>
+        <td><span>
+        <img class="country-icon" src="https://countryflagsapi.com/png/${country}"  />
+      </span>
+      &nbsp;${country}</td>
+        <td>
+        ${date}
+        </td>
+        <td>${time === undefined ? "N.A." : time}</td>
+        <td class="winner-calendar"></td>
+      </tr>
+    `;
+
+    $calendarFullTbody.insertAdjacentHTML("beforeend", html);
+
+    const $countryIcons = document.querySelectorAll(".country-icon");
+    // Handle country name exceptions
+    if (country === "UK") {
+      $countryIcons[i].setAttribute(
+        "src",
+        "https://countryflagsapi.com/png/GB"
+      );
+    } else if (country === "UAE") {
+      $countryIcons[i].setAttribute(
+        "src",
+        "https://countryflagsapi.com/png/ae"
+      );
+    } else if (country === "Russia") {
+      $countryIcons[i].setAttribute(
+        "src",
+        "https://countryflagsapi.com/png/ru"
+      );
+    } else if (
+      data.MRData.RaceTable.Races[i].Circuit.Location.country === "Korea"
+    ) {
+      $countryIcons[i].setAttribute(
+        "src",
+        "https://countryflagsapi.com/png/kr"
+      );
+    }
+  }
+}
+
+function renderWinner(data) {
+  const $winnersCalendar = document.querySelectorAll(".winner-calendar");
+
+  for (let i = 0; i < data.MRData.RaceTable.Races.length; i++) {
+    const winnerFamilyName =
+      data.MRData.RaceTable.Races[i].Results[0].Driver.familyName;
+    const winnerName =
+      data.MRData.RaceTable.Races[i].Results[0].Driver.givenName;
+    $winnersCalendar[i].textContent = winnerName[0] + "." + winnerFamilyName;
   }
 }

@@ -34,7 +34,7 @@
     </nav>
   </header>
   <main>
-    <div class="container">
+    <div class="container hidden">
       <div class="carousel-container row">
         <div class="col-40 flex circuit-info-container">
           <div class="circuit-info">
@@ -172,6 +172,31 @@
         </thead>
         <tbody class="tbody-full-constructor-standings"></tbody>
       </table>
+    </div>
+    <div class="calendar-container">
+      <div class="calendar-content side-margin">
+        <div class="select-year-calendar flex space-evenly">
+          <i class="ph-caret-double-left-fill"></i>
+          <i class="ph-caret-left-fill"></i>
+          <h1 class="calendar-year"></h1>
+          <i class="ph-caret-right-fill"></i>
+          <i class="ph-caret-double-right-fill"></i>
+        </div>
+        <table class="table-full-calendar">
+          <thead class="thead-full-calendar">
+            <tr>
+              <th>Round</th>
+              <th>Race Name</th>
+              <th>Circuit</th>
+              <th>Country</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Winner</th>
+            </tr>
+          </thead>
+          <tbody class="tbody-full-calendar"></tbody>
+        </table>
+      </div>
     </div>
   </main>
   <script src="js/data.js"></script>
