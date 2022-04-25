@@ -46,9 +46,14 @@ function showCalendar() {
   $calendarContainer.classList.remove("hidden");
 }
 
+function hideCalendar() {
+  $calendarContainer.classList.add("hidden");
+}
+
 function showConstructorStandings() {
   hideHomePage();
   hideDriverStandings();
+  hideCalendar();
   showFullStandingsContainer();
   $tableFullConstructor.classList.remove("hidden");
 }
@@ -61,6 +66,7 @@ function hideConstructorStandings() {
 function showDriverStandings() {
   hideHomePage();
   hideConstructorStandings();
+  hideCalendar();
   showFullStandingsContainer();
   $tableFullDriver.classList.remove("hidden");
 }
@@ -73,6 +79,7 @@ function showHomePage() {
   $container.classList.remove("hidden");
   hideFullStandingsContainer();
   hideDriverStandings();
+  hideCalendar();
   hideConstructorStandings();
 }
 
