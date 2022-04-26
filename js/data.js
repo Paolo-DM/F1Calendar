@@ -1,15 +1,15 @@
 function getCircuitData(circuitId) {
-  fetch(`http://ergast.com/api/f1/current/${circuitId}.json`)
+  fetch(`https://ergast.com/api/f1/current/${circuitId}.json`)
     .then((response) => response.json())
     .then((data) => renderCircuitData(data));
 }
 
 function getCalendar(year) {
-  fetch(`http://ergast.com/api/f1/${year}.json`)
+  fetch(`https://ergast.com/api/f1/${year}.json`)
     .then((response) => response.json())
     .then((data) => {
       renderFullCalendar(data);
-      return fetch(`http://ergast.com/api/f1/${year}/results.json?limit=700`);
+      return fetch(`https://ergast.com/api/f1/${year}/results.json?limit=700`);
     })
     .then((response) => response.json())
     .then((data) => {
@@ -18,7 +18,7 @@ function getCalendar(year) {
 }
 
 function getConstructorStandings(year) {
-  fetch(`http://ergast.com/api/f1/${year}/constructorStandings.json`)
+  fetch(`https://ergast.com/api/f1/${year}/constructorStandings.json`)
     .then((response) => response.json())
     .then((data) => {
       renderSmallConstructorStandings(data);
@@ -27,7 +27,7 @@ function getConstructorStandings(year) {
 }
 
 function getDriverStandings(year) {
-  fetch(`http://ergast.com/api/f1/${year}/driverStandings.json`)
+  fetch(`https://ergast.com/api/f1/${year}/driverStandings.json`)
     .then((response) => response.json())
     .then((data) => {
       renderFullllDriverStandings(data);
