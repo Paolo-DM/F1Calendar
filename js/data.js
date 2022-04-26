@@ -137,7 +137,7 @@ function renderFullCalendar(data) {
     let circuitName = data.MRData.RaceTable.Races[i].Circuit.circuitName;
     let country = data.MRData.RaceTable.Races[i].Circuit.Location.country;
     let date = data.MRData.RaceTable.Races[i].date;
-    let time = data.MRData.RaceTable.Races[i].time.slice(0, 5) + "Z";
+    let time = data.MRData.RaceTable.Races[i].time;
 
     const html = `
       <tr class="calendar-tr">
@@ -153,7 +153,7 @@ function renderFullCalendar(data) {
         <td>
         ${date}
         </td>
-        <td>${time === undefined ? "N.A." : time}</td>
+        <td>${time === undefined ? "N.A." : time.slice(0, 5) + "Z"}</td>
         <td class="winner-calendar"></td>
       </tr>
     `;
