@@ -125,7 +125,7 @@ tr {
 }
 
 .standings-btn {
-  margin-top: 2rem;
+  margin: 1rem 0;
   border: 2px solid black;
   color: black;
   border-radius: 6px;
