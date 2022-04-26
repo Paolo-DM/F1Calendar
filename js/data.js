@@ -47,7 +47,7 @@ function renderFullllDriverStandings(data) {
         <td>
           <span>
             <img class="pilot-icon" src="images/pilots/${data.MRData.StandingsTable.StandingsLists[0].DriverStandings[i]
-        .Driver.familyName
+        .Driver.familyName.toLowerCase()
       }.png" />
           </span>
           &nbsp;${data.MRData.StandingsTable.StandingsLists[0].DriverStandings[i]
