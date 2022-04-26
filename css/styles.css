@@ -2,6 +2,10 @@
   font-family: "Open Sans", sans-serif;
 }
 
+body {
+  width: 100%;
+}
+
 .hidden {
   display: none;
 }
@@ -128,7 +132,7 @@ tr {
   padding: 1rem 1.8rem;
 }
 
-/* FULL STANDINGS */
+/* Full Standings */
 
 .full-standings-container {
   background-color: #f2f2f2;
@@ -206,10 +210,6 @@ tr {
   border-collapse: collapse;
 }
 
-.table-full-calendar td {
-  /* width: 4rem; */
-}
-
 .select-year-calendar {
   gap: 2rem;
 }
@@ -221,7 +221,34 @@ tr {
   font-size: 1.5rem;
 }
 
-@media (max-width: 800px) {
+/* Media Queries*/
+
+@media (max-width: 768px) {
+  body {
+    width: 100%;
+  }
+
+  .nav-links {
+    margin: auto;
+  }
+
+  .nav-logo img {
+    display: none;
+  }
+
+  .nav-link {
+    font-size: 1rem;
+  }
+
+  .select-standing-row h2 {
+    font-size: 1rem;
+  }
+
+  .logo-text {
+    font-size: 1.2rem;
+    margin-left: 0;
+  }
+
   .carousel-container {
     flex-direction: column;
     padding: 1rem 0;
@@ -236,21 +263,35 @@ tr {
     display: none;
   }
   .drivers-standings-container,
-  .constructors-standings-container {
+  .constructors-standings-container,
+  .full-standings-container {
     width: 100%;
   }
 
   .full-standings-container img {
     display: none;
   }
-  .table-full-calendar td,
-  .table-full-calendar thead th {
-    font-size: 1rem;
+
+  .full-standings-container table {
+    width: 100%;
   }
-  .table-full-calendar img {
+
+  .constructor-car {
     display: none;
   }
-  .table-full-calendar .circuit-name {
+
+  .full-standings-nationality {
+    display: none;
+  }
+
+  .calendar-content {
+    width: 100%;
+  }
+
+  .calendar-circuit-name {
+    display: none;
+  }
+  .calendar-country {
     display: none;
   }
 }

@@ -47,7 +47,7 @@ function renderFullllDriverStandings(data) {
         <td>
           <span>
             <img class="pilot-icon" src="images/pilots/${data.MRData.StandingsTable.StandingsLists[0].DriverStandings[i]
-        .Driver.familyName.toLowerCase()
+        .Driver.familyName
       }.png" />
           </span>
           &nbsp;${data.MRData.StandingsTable.StandingsLists[0].DriverStandings[i]
@@ -57,7 +57,7 @@ function renderFullllDriverStandings(data) {
         .Driver.familyName
       }
         </td>
-        <td>
+        <td class="full-standings-nationality">
           <span>
             <img class="pilot-nationality-icon" src="images/flags/${data.MRData.StandingsTable.StandingsLists[0].DriverStandings[i]
         .Driver.nationality
@@ -95,12 +95,12 @@ function renderFullllConstructorStandings(data) {
         .Constructor.name
       }
         </td>
-        <td><span>
+        <td class="constructor-car"><span>
         <img class="car-icon" src="images/cars/${data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings[i]
         .Constructor.constructorId
       }.png" />
       </span></td>
-        <td>
+        <td class="full-standings-nationality">
           <span>
             <img class="pilot-nationality-icon" src="images/flags/${data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings[
         i
@@ -137,7 +137,7 @@ function renderFullCalendar(data) {
     let circuitName = data.MRData.RaceTable.Races[i].Circuit.circuitName;
     let country = data.MRData.RaceTable.Races[i].Circuit.Location.country;
     let date = data.MRData.RaceTable.Races[i].date;
-    let time = data.MRData.RaceTable.Races[i].time;
+    let time = data.MRData.RaceTable.Races[i].time.slice(0, 5) + "Z";
 
     const html = `
       <tr class="calendar-tr">
@@ -145,8 +145,8 @@ function renderFullCalendar(data) {
         <td>
           ${raceName}
         </td>
-        <td class="circuit-name">${circuitName}</td>
-        <td><span>
+        <td class="calendar-circuit-name">${circuitName}</td>
+        <td class="calendar-country"><span>
         <img class="country-icon" src="https://countryflagsapi.com/png/${country}"  />
       </span>
       &nbsp;${country}</td>
