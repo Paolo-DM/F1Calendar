@@ -188,7 +188,8 @@ tr {
 
 .thead-full-driver-standings tr th,
 .thead-full-constructor-standings tr th,
-.thead-full-calendar tr th {
+.thead-full-calendar tr th,
+.modal-table tr th {
   font-family: Raleway, sans-serif;
   font-size: 1.2rem;
   background-color: #e5e5e5;
@@ -219,6 +220,72 @@ tr {
 }
 .select-year-calendar i {
   font-size: 1.5rem;
+}
+
+.tbody-full-calendar tr:hover {
+  background-color: #fcefa5;
+  cursor: pointer;
+}
+
+.tbody-full-calendar tr:active {
+  box-shadow: 2px 0px 20px 3px rgba(0, 0, 0, 0.14);
+}
+
+.overlay {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+  position: fixed;
+  width: 70%;
+  height: 50%;
+  overflow: auto;
+  left: 50%;
+  top: 50%;
+  background-color: white;
+  margin: 0 auto;
+  transform: translate(-50%, -50%);
+}
+
+.modal-header {
+  color: white;
+  padding: 0.3rem 0;
+}
+
+.modal-header-txt {
+  margin: 0 1rem;
+  text-align: center;
+}
+
+.close-modal {
+  margin-right: 1rem;
+  font-size: 1.8rem;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+  color: #fcefa5;
+  cursor: pointer;
+}
+
+.modal-table {
+  border-collapse: collapse;
+  overflow: scroll;
+  text-align: center;
+  width: 100%;
+}
+
+.modal-table tbody {
+  height: 300px;
+  overflow: scroll;
 }
 
 /* Media Queries*/
