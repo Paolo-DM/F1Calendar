@@ -11,7 +11,7 @@ const $tableFullConstructor = document.querySelector(".table-full-constructor");
 const $container = document.querySelector(".container");
 const $standingsLink = document.querySelector(".standings-link");
 const $homeLinks = document.querySelectorAll(".home-link");
-const $calendarLink = document.querySelector(".calendar-link");
+const $calendarLinks = document.querySelectorAll(".calendar-link");
 const $calendarContainer = document.querySelector(".calendar-container");
 const $driverStandingsLink = document.querySelectorAll(
   ".driver-standings-link"
@@ -22,6 +22,9 @@ const $constructorStandingsLink = document.querySelectorAll(
 const $fullStandingsContainer = document.querySelector(
   ".full-standings-container"
 );
+const $overlay = document.querySelector(".overlay");
+const $closeModal = document.querySelector(".close-modal");
+const $modalHeaderTxt = document.querySelector(".modal-header-txt");
 
 const currentYear = new Date().getFullYear();
 
@@ -37,7 +40,8 @@ $driverStandingsLink.forEach((item) =>
 
 $standingsLink.addEventListener("click", showDriverStandings);
 
-$calendarLink.addEventListener("click", showCalendar);
+$calendarLinks.forEach((link) => link.addEventListener("click", showCalendar));
+$closeModal.addEventListener("click", hideModal);
 
 function showCalendar() {
   hideHomePage();
@@ -85,6 +89,14 @@ function showHomePage() {
 
 function hideHomePage() {
   $container.classList.add("hidden");
+}
+
+function showModal() {
+  $overlay.classList.remove("hidden");
+}
+
+function hideModal() {
+  $overlay.classList.add("hidden");
 }
 
 function showFullStandingsContainer() {

@@ -14,6 +14,20 @@ function getCalendar(year) {
     .then((response) => response.json())
     .then((data) => {
       renderWinner(data);
+      let $calendarTbodyRows = document.querySelectorAll(
+        ".tbody-full-calendar tr"
+      );
+      $calendarTbodyRows.forEach((row) => {
+        row.addEventListener("click", function () {
+          $modalHeaderTxt.textContent = `${row.getElementsByClassName("race-name")[0].textContent
+            }`;
+          let round = parseInt(
+            row.getElementsByClassName("round")[0].textContent
+          );
+          getRaceResults(year, round);
+          showModal();
+        });
+      });
     });
 }
 
@@ -46,9 +60,9 @@ function renderFullllDriverStandings(data) {
         <td><strong>${i + 1}</strong></td>
         <td>
           <span>
-            <img class="pilot-icon" src="images/pilots/${data.MRData.StandingsTable.StandingsLists[0].DriverStandings[i]
-      .Driver.familyName.toLowerCase()
-      }.png" />
+            <img class="pilot-icon" src="images/pilots/${data.MRData.StandingsTable.StandingsLists[0].DriverStandings[
+        i
+      ].Driver.familyName.toLowerCase()}.png" />
           </span>
           &nbsp;${data.MRData.StandingsTable.StandingsLists[0].DriverStandings[i]
         .Driver.givenName +
@@ -123,6 +137,52 @@ function renderFullllConstructorStandings(data) {
   }
 }
 
+function getRaceResults(year, round) {
+  fetch(`https://ergast.com/api/f1/${year}/${round}/results.json`)
+    .then((response) => response.json())
+    .then((data) => {
+      renderRaceResults(data);
+    });
+}
+
+function renderRaceResults(data) {
+  const $modalTrElements = document.querySelectorAll(".modal-tbody tr");
+  const $modalTbody = document.querySelector(".modal-tbody");
+  if ($modalTbody) {
+    $modalTrElements.forEach((tr) => tr.remove());
+  }
+  const round = parseInt(data.MRData.RaceTable.round);
+  for (let i = 0; i < data.MRData.total; i++) {
+    const position = data.MRData.RaceTable.Races[0].Results[i].position;
+    const points = data.MRData.RaceTable.Races[0].Results[i].points;
+    const laps = data.MRData.RaceTable.Races[0].Results[i].laps;
+    const time = data.MRData.RaceTable.Races[0].Results[i].Time
+      ? data.MRData.RaceTable.Races[0].Results[i].Time.time
+      : data.MRData.RaceTable.Races[0].Results[i].status;
+    const fullDriverName =
+      data.MRData.RaceTable.Races[0].Results[i].Driver.givenName +
+      " " +
+      data.MRData.RaceTable.Races[0].Results[i].Driver.familyName;
+    const car = data.MRData.RaceTable.Races[0].Results[i].Constructor.name;
+
+    const html = `
+    <tr>
+      <td>${position}</td>
+      <td>${fullDriverName}</td>
+      <td>${car}</td>
+      <td>${laps}</td>
+      <td>${time}</td>
+      <td>${points}</td>
+  `;
+    $modalTbody.insertAdjacentHTML("beforeend", html);
+  }
+
+  // const points = data.MRData.RaceTable.ResultsList.Result.points;
+  // const givenName = data.MRData.RaceTable.ResultsList.Result.Driver.givenName;
+}
+
+// getRaceResults(2021, 3);
+
 function renderFullCalendar(data) {
   const $trElements = document.querySelectorAll(".calendar-tr");
   const $calendarFullTbody = document.querySelector(".tbody-full-calendar");
@@ -141,8 +201,8 @@ function renderFullCalendar(data) {
 
     const html = `
       <tr class="calendar-tr">
-        <td><strong>${i + 1}</strong></td>
-        <td>
+        <td class="round"><strong>${i + 1}</strong></td>
+        <td class="race-name">
           ${raceName}
         </td>
         <td class="calendar-circuit-name">${circuitName}</td>
