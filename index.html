@@ -28,15 +28,29 @@
       </div>
       <div class="nav-links flex">
         <a class="nav-link home-link" href="#">Home</a>
-        <a class="nav-link standings-link driver-standings-link" href="#">Standings</a>
+        <div class="dropdown">
+          <a class="dropbtn nav-link standings-link" href="#">Standings<i class="ph-caret-down"></i></a>
+          <div class="dropdown-content blue-bkgd">
+            <a class="driver-standings-link" href="#">Driver Standings</a>
+            <a class="constructor-standings-link" href="#">Constructor Standings</a>
+          </div>
+        </div>
+
         <a class="nav-link calendar-link" href="#">Calendar</a>
       </div>
     </nav>
   </header>
   <main>
     <div class="container">
+      <div class="calendar-banner flex">
+        <h2 style="margin: 0">
+          To see Schedule &amp; Results of any season in F1 history, click
+          here:
+          <a class="calendar-link calendar-result-link" href="#">Calendar/Results</a>
+        </h2>
+      </div>
       <div class="carousel-container row">
-        <div class="col-40 flex circuit-info-container">
+        <div class="col-40 row align-center circuit-info-container">
           <div class="circuit-info">
             <!-- <h1>Emilia Romagna Grand Prix</h1>
               <p><strong>Circuit</strong>: Autodromo Enzo e Dino Ferrari</p>
@@ -51,7 +65,7 @@
             <div class="image-container">
               <img class="carousel-image" src="images/circuits/1.png" alt="circuit-img" />
             </div>
-            <i class="ph-arrow-circle-right right-arrow"></i>
+            <i class="ph-arrow-circle-right right-arrow align-center"></i>
           </div>
           <div class="progress-dots row justify-center align-center">
             <i class="ph-circle ph-circle-fill" id="1"></i>
@@ -79,6 +93,7 @@
           </div>
         </div>
       </div>
+
       <div class="standings-container">
         <div class="row">
           <div class="col-50 standings-img-container">

@@ -11,7 +11,7 @@ const $tableFullConstructor = document.querySelector(".table-full-constructor");
 const $container = document.querySelector(".container");
 const $standingsLink = document.querySelector(".standings-link");
 const $homeLinks = document.querySelectorAll(".home-link");
-const $calendarLink = document.querySelector(".calendar-link");
+const $calendarLinks = document.querySelectorAll(".calendar-link");
 const $calendarContainer = document.querySelector(".calendar-container");
 const $driverStandingsLink = document.querySelectorAll(
   ".driver-standings-link"
@@ -40,7 +40,7 @@ $driverStandingsLink.forEach((item) =>
 
 $standingsLink.addEventListener("click", showDriverStandings);
 
-$calendarLink.addEventListener("click", showCalendar);
+$calendarLinks.forEach((link) => link.addEventListener("click", showCalendar));
 $closeModal.addEventListener("click", hideModal);
 
 function showCalendar() {
